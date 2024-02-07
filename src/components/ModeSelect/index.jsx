@@ -1,4 +1,4 @@
-import { useColorScheme } from '@mui/material'
+import { Box, useColorScheme } from '@mui/material'
 import InputLabel from '@mui/material/InputLabel'
 import MenuItem from '@mui/material/MenuItem'
 import FormControl from '@mui/material/FormControl'
@@ -23,19 +23,19 @@ function ModeSelect() {
         onChange={handleChange}
       >
         <MenuItem value="light">
-          <div style={{ display: 'flex', alignItems: 'center', gap: '5px' }}>
+          <Box sx={{ display: 'flex', alignItems: 'center', gap: 1 }}>
             <LightModeIcon fontSize='small'/> Light
-          </div>
+          </Box>
         </MenuItem>
         <MenuItem value="dark">
-          <div style={{ display: 'flex', alignItems: 'center', gap: '5px' }}>
+          <Box sx={{ display: 'flex', alignItems: 'center', gap: 1 }}>
             <DarkModeIcon fontSize='small'/> Dark
-          </div>
+          </Box>
         </MenuItem>
         <MenuItem value="system">
-          <div style={{ display: 'flex', alignItems: 'center', gap: '5px' }}>
+          <Box sx={{ display: 'flex', alignItems: 'center', gap: 1 }}>
             <SettingsBrightnessIcon fontSize='small'/> System
-          </div>
+          </Box>
         </MenuItem>
       </Select>
     </FormControl>
