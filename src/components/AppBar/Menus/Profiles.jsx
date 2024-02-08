@@ -32,7 +32,7 @@ const Profiles = () => {
             aria-haspopup="true"
             aria-expanded={open ? 'true' : undefined}
           >
-            <Avatar sx={{ width: 32, height: 32 }}
+            <Avatar sx={{ width: 34, height: 34 }}
               src='https://scontent.fhan3-4.fna.fbcdn.net/v/t39.30808-6/395895629_1735768630180082_6235557071848652993_n.jpg?_nc_cat=106&ccb=1-7&_nc_sid=efb6e6&_nc_ohc=LQqEAZSIVfcAX_CdL2m&_nc_ht=scontent.fhan3-4.fna&oh=00_AfCDLU-b_105IjC4GCaVeQRCGwEg0X3AJ2875ltYzttG0Q&oe=65C6908F'
             />
           </IconButton>
