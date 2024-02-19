@@ -11,6 +11,8 @@ import Tooltip from '@mui/material/Tooltip'
 import Button from '@mui/material/Button'
 import PersonAddIcon from '@mui/icons-material/PersonAdd'
 
+import { capitalizeFirstLetter } from '~/utils/formatters'
+
 const MENU_STYLES = {
   color: 'white',
   bgcolor: 'transparent',
@@ -25,7 +27,8 @@ const MENU_STYLES = {
   }
 }
 
-function BoardBar() {
+function BoardBar(props) {
+  const { board } = props
   return (
     <Box px={2} sx={{
       width: '100%',
@@ -42,13 +45,13 @@ function BoardBar() {
         <Chip
           sx={MENU_STYLES}
           icon={<DashboardIcon />}
-          label="HieuPham Developer"
+          label={board?.title}
           clickable
         />
         <Chip
           sx={MENU_STYLES}
           icon={<VpnLockIcon />}
-          label="Public/Private Workspace"
+          label={capitalizeFirstLetter(board?.type)}
           clickable
         />
         <Chip
