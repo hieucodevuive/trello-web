@@ -3,8 +3,8 @@ import CoLumn from './Column/CoLumn'
 import Button from '@mui/material/Button'
 import NoteAddIcon from '@mui/icons-material/NoteAdd'
 
-function ListCoLumns() {
-
+function ListCoLumns(props) {
+  const { columns } = props
   return (
     <Box sx={{
       bgcolor: 'inherit',
@@ -14,9 +14,12 @@ function ListCoLumns() {
       overflowX: 'auto',
       overflowY: 'hidden'
     }}>
-      <CoLumn />
-      <CoLumn />
+      {/* columns */}
+      {columns?.map(column => (
+        <CoLumn key={column._id} column={column}/>
+      ))}
 
+      {/* Add new column button */}
       <Box sx={{
         minWidth: '200px',
         maxWidth: '200px',

@@ -2,7 +2,8 @@ import Box from '@mui/material/Box'
 
 import Card from './Card/Card'
 
-const ListCards = () => {
+const ListCards = (props) => {
+  const { cards } = props
   return (
     <Box sx={{
       p: '0 5px',
@@ -26,17 +27,9 @@ const ListCards = () => {
         backgroundColor: '#bfc2cf'
       }
     }}>
-      <Card />
-      <Card hideMedia />
-      <Card hideMedia />
-      <Card hideMedia />
-      <Card hideMedia />
-      <Card hideMedia />
-      <Card hideMedia />
-      <Card hideMedia />
-      <Card hideMedia />
-      <Card hideMedia />
-      <Card hideMedia />
+      {cards?.map(card => (
+        <Card key={card._id} card={card}/>
+      ))}
     </Box>
   )
 }
