@@ -7,13 +7,13 @@ export const mockData = {
     type: 'public', // 'private'
     ownerIds: [], // Những users là Admin của board
     memberIds: [], // Những users là member bình thường của board
-    columnOrderIds: ['column-id-01', 'column-id-02', 'column-id-03'], // Thứ tự sắp xếp / vị trí của các Columns trong 1 boards
+    columnOrderIds: ['column-id-01', 'column-id-02', 'column-id-03', 'column-id-04'], // Thứ tự sắp xếp / vị trí của các Columns trong 1 boards
     columns: [
       {
         _id: 'column-id-01',
         boardId: 'board-id-01',
         title: 'To Do Column 01',
-        cardOrderIds: ['card-id-02', 'card-id-05', 'card-id-03', 'card-id-04', 'card-id-01', 'card-id-06', 'card-id-07'],
+        cardOrderIds: ['card-id-02', 'card-id-01', 'card-id-03', 'card-id-04', 'card-id-05', 'card-id-06', 'card-id-07'],
         cards: [
           {
             _id: 'card-id-01',
@@ -40,9 +40,9 @@ export const mockData = {
         title: 'Inprogress Column 02',
         cardOrderIds: ['card-id-08', 'card-id-09', 'card-id-10'],
         cards: [
-          { _id: 'card-id-08', boardId: 'board-id-01', columnId: 'column-id-02', title: 'Title of card 08', description: null, cover: null, memberIds: [], comments: [], attachments: [] },
+          { _id: 'card-id-10', boardId: 'board-id-01', columnId: 'column-id-02', title: 'Title of card 08', description: null, cover: null, memberIds: [], comments: [], attachments: [] },
           { _id: 'card-id-09', boardId: 'board-id-01', columnId: 'column-id-02', title: 'Title of card 09', description: null, cover: null, memberIds: [], comments: [], attachments: [] },
-          { _id: 'card-id-10', boardId: 'board-id-01', columnId: 'column-id-02', title: 'Title of card 10', description: null, cover: null, memberIds: [], comments: [], attachments: [] }
+          { _id: 'card-id-8', boardId: 'board-id-01', columnId: 'column-id-02', title: 'Title of card 10', description: null, cover: null, memberIds: [], comments: [], attachments: [] }
         ]
       },
       {
@@ -54,6 +54,20 @@ export const mockData = {
           { _id: 'card-id-11', boardId: 'board-id-01', columnId: 'column-id-03', title: 'Title of card 11', description: null, cover: null, memberIds: [], comments: [], attachments: [] },
           { _id: 'card-id-12', boardId: 'board-id-01', columnId: 'column-id-03', title: 'Title of card 12', description: null, cover: null, memberIds: [], comments: [], attachments: [] },
           { _id: 'card-id-13', boardId: 'board-id-01', columnId: 'column-id-03', title: 'Title of card 13', description: null, cover: null, memberIds: [], comments: [], attachments: [] }
+        ]
+      },
+      {
+        _id: 'column-id-04',
+        boardId: 'board-id-01',
+        title: 'Done Column 04',
+        cardOrderIds: ['column-id-04-placeholder-card'],
+        cards: [
+          {
+            _id: 'column-id-04-placeholder-card',
+            boardId: 'board-id-01',
+            columnId: 'column-id-04',
+            FE_PlaceholderCard: true
+          }
         ]
       }
     ]
