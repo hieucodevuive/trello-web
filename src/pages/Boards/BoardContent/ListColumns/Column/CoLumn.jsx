@@ -174,6 +174,7 @@ function CoLumn(props) {
                 size='small'
                 variant='outlined'
                 autoFocus
+                data-no-dnd='true'
                 value={newCardTitle}
                 onChange={(e) => setNewCardTitle(e.target.value)}
                 sx={{
@@ -206,6 +207,7 @@ function CoLumn(props) {
                 <Button
                   onClick={ addNewCard }
                   variant='contained'
+                  data-no-dnd='true'
                   color='success'
                   size='small'
                   sx={{
@@ -219,6 +221,7 @@ function CoLumn(props) {
                     color: (theme) => theme.palette.warning.light,
                     cursor: 'pointer'
                   }}
+                  data-no-dnd='true'
                   fontSize='small'
                   onClick={toggleOpenNewCardForm}
                 />
