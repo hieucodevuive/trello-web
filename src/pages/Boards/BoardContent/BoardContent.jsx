@@ -9,8 +9,6 @@ import { generatePlaceholderCard } from '~/utils/formatters'
 import { mapOrder } from '~/utils/sorts'
 import {
   DndContext,
-  MouseSensor,
-  TouchSensor,
   useSensor,
   useSensors,
   DragOverlay,
@@ -19,6 +17,10 @@ import {
   closestCorners,
   getFirstCollision
 } from '@dnd-kit/core'
+import {
+  MouseSensor,
+  TouchSensor
+} from '~/customLibraries/DndKitSensors'
 import { arrayMove } from '@dnd-kit/sortable'
 
 const ACTIVE_DRAG_ITEM_TYPE = {
