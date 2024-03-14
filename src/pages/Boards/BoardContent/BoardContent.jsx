@@ -29,7 +29,7 @@ const ACTIVE_DRAG_ITEM_TYPE = {
 }
 
 function BoardContent(props) {
-  const { board } = props
+  const { board, createNewColumn, createNewCard } = props
   // Sử dụng mou và touch sensor để người dùng có trải nhiệm tốt nhất trên moblie và PC
   const mouseSensor = useSensor(MouseSensor, { activationConstraint: { distance: 10 } })
   const touchSensor = useSensor(TouchSensor, { activationConstraint: { delay: 250, tolerance: 500 } })
@@ -265,7 +265,11 @@ function BoardContent(props) {
         bgcolor: (theme) => (theme.palette.mode === 'dark' ? '#34495e' : '#1976d2'),
         p: '10px 0'
       }}>
-        <ListCoLumns columns={orderedColumns}/>
+        <ListCoLumns
+          columns={orderedColumns}
+          createNewColumn={createNewColumn}
+          createNewCard={createNewCard}
+        />
         <DragOverlay dropAnimation={dropAnimation}>
           {!activeDragItemType && null}
           {(activeDragItemId && activeDragItemType === ACTIVE_DRAG_ITEM_TYPE.COLUMN && <CoLumn column={activeDragItemData}/>)}

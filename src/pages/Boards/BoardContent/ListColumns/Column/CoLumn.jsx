@@ -19,6 +19,7 @@ import DragHandleIcon from '@mui/icons-material/DragHandle'
 import Box from '@mui/material/Box'
 import TextField from '@mui/material/TextField'
 import CloseIcon from '@mui/icons-material/Close'
+import { toast } from 'react-toastify'
 
 
 import ListCards from './ListCards/ListCards'
@@ -28,7 +29,7 @@ import { useSortable } from '@dnd-kit/sortable'
 import { CSS } from '@dnd-kit/utilities'
 
 function CoLumn(props) {
-  const { column } = props
+  const { column, createNewCard } = props
   const { attributes, listeners, setNodeRef, transform, transition, isDragging } = useSortable({
     id: column._id,
     data: { ...column }
@@ -52,12 +53,18 @@ function CoLumn(props) {
   const toggleOpenNewCardForm = () => setopenNewCardForm(!openNewCardForm)
   const [newCardTitle, setNewCardTitle] = useState('')
 
-  const addNewCard = () => {
+  const addNewCard = async() => {
     if (!newCardTitle) {
-      // console.log('plz enter Card title')
+      toast.error('Please ender Card Title')
       return
     }
-    //goi api
+    const newCardData = {
+      title: newCardTitle,
+      columnId: column._id
+    }
+    //Call api
+    await createNewCard(newCardData)
+    //toggle cardform
     toggleOpenNewCardForm()
     setNewCardTitle('')
   }
