@@ -29,7 +29,7 @@ const ACTIVE_DRAG_ITEM_TYPE = {
 }
 
 function BoardContent(props) {
-  const { board, createNewColumn, createNewCard } = props
+  const { board, createNewColumn, createNewCard, moveColumns } = props
   // Sử dụng mou và touch sensor để người dùng có trải nhiệm tốt nhất trên moblie và PC
   const mouseSensor = useSensor(MouseSensor, { activationConstraint: { distance: 10 } })
   const touchSensor = useSensor(TouchSensor, { activationConstraint: { delay: 250, tolerance: 500 } })
@@ -210,9 +210,11 @@ function BoardContent(props) {
         // LẤY VỊ TRÍ MỚI TỪ OVER
         const newColumnIndex = orderedColumns.findIndex(c => c._id === over.id)
         const dndOrderedColumns = arrayMove(orderedColumns, oldColumnIndex, newColumnIndex)
-        // const dndOrderedColumnsIds = dndOrderedColumns.map(c => c._id)
-        // console.log('dndOrderedColumnsIds', dndOrderedColumnsIds)
+
+        moveColumns(dndOrderedColumns)
+
         setOrderedColumns(dndOrderedColumns)
+
       }
     }
     setActiveDragItemId(null)
