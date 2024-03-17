@@ -34,7 +34,9 @@ function BoardContent(props) {
     createNewCard,
     moveColumns,
     moveCardInColumn,
-    moveCardToDiffColumn
+    moveCardToDiffColumn,
+    handleDeleteColumnDetails
+
   } = props
   // Sử dụng mou và touch sensor để người dùng có trải nhiệm tốt nhất trên moblie và PC
   const mouseSensor = useSensor(MouseSensor, { activationConstraint: { distance: 10 } })
@@ -291,6 +293,7 @@ function BoardContent(props) {
           columns={orderedColumns}
           createNewColumn={createNewColumn}
           createNewCard={createNewCard}
+          handleDeleteColumnDetails={handleDeleteColumnDetails}
         />
         <DragOverlay dropAnimation={dropAnimation}>
           {!activeDragItemType && null}

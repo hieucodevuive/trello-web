@@ -7,6 +7,7 @@ import { mapOrder } from '~/utils/sorts'
 import Box from '@mui/material/Box'
 import CircularProgress from '@mui/material/CircularProgress'
 import Typography from '@mui/material/Typography'
+import { toast } from 'react-toastify'
 
 import {
   fetchBoardDetailsAPI,
@@ -14,7 +15,8 @@ import {
   createNewCardAPI,
   updateBoardDetailsAPI,
   updateColumnDetailsAPI,
-  moveCardToDiffColumnAPI
+  moveCardToDiffColumnAPI,
+  deleteDetailColumnApi
 } from '~/apis'
 import { generatePlaceholderCard } from '~/utils/formatters'
 import { isEmpty } from 'lodash'
@@ -126,6 +128,17 @@ function Board() {
     })
   }
 
+  const handleDeleteColumnDetails = (columnId) => {
+    //Update chuan du lieu board
+    const newBoard = { ...board }
+    newBoard.columns = newBoard.columns.filter(c => c._id !== columnId)
+    newBoard.columnOrderIds = newBoard.columnOrderIds.filter(_id => _id !== columnId)
+    setBoard(newBoard)
+    deleteDetailColumnApi(columnId).then(res => {
+      toast.success(res?.deleteResult)
+    })
+  }
+
   if (!board) {
     return (
       <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 2, width: '100vw', height: '100vh' }}>
@@ -146,6 +159,7 @@ function Board() {
         moveColumns={moveColumns}
         moveCardInColumn={moveCardInColumn}
         moveCardToDiffColumn={moveCardToDiffColumn}
+        handleDeleteColumnDetails={handleDeleteColumnDetails}
       />
     </Container>
   )

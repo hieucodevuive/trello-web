@@ -9,7 +9,7 @@ import { useState } from 'react'
 import { toast } from 'react-toastify'
 
 function ListCoLumns(props) {
-  const { columns, createNewColumn, createNewCard } = props
+  const { columns, createNewColumn, createNewCard, handleDeleteColumnDetails } = props
 
   const [openNewColumnForm, setopenNewColumnForm] = useState(false)
   const toggleOpenNewColumnForm = () => setopenNewColumnForm(!openNewColumnForm)
@@ -47,6 +47,7 @@ function ListCoLumns(props) {
             key={column._id}
             column={column}
             createNewCard={createNewCard}
+            handleDeleteColumnDetails={handleDeleteColumnDetails}
           />
         ))}
         {
