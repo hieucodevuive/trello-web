@@ -20,8 +20,22 @@ export const createNewColumnAPI = async(newColumn) => {
   return response.data
 }
 
+export const updateColumnDetailsAPI = async(columnId, updateData) => {
+  const response = await axios.put(`${API_ROOT}/v1/columns/${columnId}`, updateData)
+  //axios se tra ve ket qua thong qua data
+  return response.data
+}
+
 //Card
 export const createNewCardAPI = async(newCard) => {
   const response = await axios.post(`${API_ROOT}/v1/cards`, newCard)
   return response.data
 }
+
+export const moveCardToDiffColumnAPI = async(updateData) => {
+  const response = await axios.put(`${API_ROOT}/v1/boards/supports/moving_cards`, updateData)
+  //axios se tra ve ket qua thong qua data
+  return response.data
+}
+
+
